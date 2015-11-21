@@ -2,10 +2,24 @@
 
 from strobe import strobe, setup, cleanup, onoff
 
-hertz = 0.5
-duration = 10
 pin = 11
 
+dash = 0.7
+pause = 0.15
+dot = 0.2
+
 setup(pin)
-strobe(hertz, duration, pin)
+
+onoff(dot, pause, pin)
+onoff(dot, pause, pin)
+onoff(dot, pause + 0.5, pin)
+
+onoff(dash, pause, pin)
+onoff(dash, pause, pin)
+onoff(dash, pause + 0.5, pin)
+
+onoff(dot, pause, pin)
+onoff(dot, pause, pin)
+onoff(dot, pause + 0.5, pin)
+
 cleanup()
