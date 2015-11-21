@@ -11,7 +11,7 @@ def onoff(ontime, offtime, pin):
     sleep(offtime)
 
 def strobe(freq, dur, pin):
-    nflashes = freq * dur
+    nflashes = int(freq * dur)
     period = 1.0 / freq
 
     # Use Raspberry-Pi board pin numbers. In other words, 11 means pin
