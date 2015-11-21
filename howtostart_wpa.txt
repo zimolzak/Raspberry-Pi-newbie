@@ -1,0 +1,6 @@
+/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -d
+
+'wpa_gui &' is helpful
+
