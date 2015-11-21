@@ -24,3 +24,22 @@ def strobe(freq, dur, pin):
     period = 1.0 / freq
     for i in range(nflashes):
         onoff(period/2.0, period/2.0, pin)
+
+dash_t = 0.7
+pause_t = 0.15
+dot_t = 0.2
+letter_t = 0.5
+
+def dash(pin):
+    onoff(dash_t, pause_t, pin) # closure
+
+def dot(pin):
+    onoff(dot_t, pause_t, pin)
+
+def letter(string, pin):
+    for char in string:
+        if char == '-':
+            dash(pin)
+        if char == '.':
+            dot(pin)
+    sleep(letter_t)
