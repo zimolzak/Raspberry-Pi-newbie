@@ -25,10 +25,10 @@ def strobe(freq, dur, pin):
     for i in range(nflashes):
         onoff(period/2.0, period/2.0, pin)
 
-dash_t = 0.7
-pause_t = 0.15
-dot_t = 0.2
-letter_t = 0.5
+dash_t = 0.2
+pause_t = 0.1
+dot_t = 0.1
+letter_t = 0
 
 def dash(pin):
     onoff(dash_t, pause_t, pin) # closure
