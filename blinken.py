@@ -7,8 +7,8 @@ pin = 11
 
 setup(pin)
 
-letter('...', pin)
-letter('---', pin)
-letter('...', pin)
+letter('-.--', pin)
+letter('-.--', pin)
+letter('--..', pin)
 
 cleanup()
