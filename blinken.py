@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# Adapted from code by Rahul Kar
+# http://www.rpiblog.com/2012/09/using-gpio-of-raspberry-pi-to-blink-led.html
+
 import RPi.GPIO as GPIO
 from time import sleep
 

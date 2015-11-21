@@ -17,3 +17,13 @@ mostly obvious but not 100%.
 long leg of LED --> Short leg of LED --> 220 ohm --> GND (canakit T,
 pin 39)
 
+Blink software
+--------
+
+Adapted from code by Rahul Kar
+
+http://www.rpiblog.com/2012/09/using-gpio-of-raspberry-pi-to-blink-led.html
+
+Edit the code to decide what frequency blink and for how many seconds.
+
+Usage: `sudo ./blinken.py`
