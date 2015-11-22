@@ -1,0 +1,14 @@
+loop do
+  sample :loop_amen, amp: 5
+  play chord(:c), amp: 5
+  sleep sample_duration :loop_amen
+  sample :loop_amen, amp: 5
+  play chord(:g), amp: 5
+  sleep sample_duration :loop_amen
+  sample :loop_amen, amp: 5
+  play chord(:a, :minor), amp: 5
+  sleep sample_duration :loop_amen
+  sample :loop_amen, amp: 5
+  play chord(:f), amp: 5
+  sleep sample_duration :loop_amen
+end

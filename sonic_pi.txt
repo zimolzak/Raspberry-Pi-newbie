@@ -1,0 +1,12 @@
+loop do
+  sample :loop_amen, amp: 5
+  play 70
+  play 74
+  play 77
+  sleep sample_duration :loop_amen
+  sample :loop_amen, amp: 5
+  play 70
+  play 73
+  play 77
+  sleep sample_duration :loop_amen
+end
