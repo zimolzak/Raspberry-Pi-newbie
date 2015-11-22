@@ -4,7 +4,29 @@ Raspberry Pi newbie
 I just got a Raspberry Pi for my birthday. How do I make it work and
 do things?
 
-Wiring
+WiFi
+--------
+
+The default way that `wpa_supplicant` gets started is:
+
+`/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf`
+
+Here is a good way to find out what is going on:
+
+`sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -d`
+
+`wpa_gui &` is helpful for clicking and watching and such.
+
+Eventually when it worked, I just did:
+
+`sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 &`
+
+Check out file `wpa_supplicant.conf` in this repo for the code that
+worked. I am not sure whether `key_mgmt=WPA-PSK` ends up getting
+auto-changed to something else for my particular network.
+
+
+Wiring for blinkenlights
 --------
 
 1. Note to self. Inside my Pi box, the red stripe on ribbon connects
@@ -20,10 +42,7 @@ pin 39)
 Blink software
 --------
 
-Adapted from code by Rahul Kar
-
-http://www.rpiblog.com/2012/09/using-gpio-of-raspberry-pi-to-blink-led.html
-
-Edit the code to decide what frequency blink and for how many seconds.
+Hint: the band Rush likes Morse code, things in 10/4 time, and the
+city of Toronto.
 
 Usage: `sudo ./blinken.py`
