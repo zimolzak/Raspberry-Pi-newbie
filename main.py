@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 
-from blinkenlights import setup, cleanup, rhythm
+from blinkenlights import setup, cleanup
+from fourleds import light_only
+from time import sleep
 
-pin = 11
-tempo = 180 * 2
-setup(pin)
-for i in range(2):
-    rhythm("1111010101011110", tempo, pin)
-rhythm("1111001111001110", tempo, pin)
-rhythm("1101101101111110", tempo, pin)
+pins = [32, 22, 18, 16]
+#       blu grn red yel
+
+for p in pins:
+    setup(p)
+
+for p in pins:
+    light_only(p, pins)
+    sleep(0.5)
+
 cleanup()
