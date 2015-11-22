@@ -3,6 +3,7 @@
 from blinkenlights import setup, cleanup
 from fourleds import light, clear
 from time import sleep
+from random import randint
 
 pins = [32, 22, 18, 16]
 #       blu grn red yel
@@ -11,11 +12,13 @@ for p in pins:
     setup(p)
 
 for i in range(20):
+    k1 = randint(5, 10) * 0.01
+    k2 = randint(5, 20) * 0.1
     for p in [32, 22, 18, 16, 18, 22, 32]:
         clear(pins)
         light(p)
-        sleep(0.07)
+        sleep(k1)
     clear(pins)
-    sleep(0.5)
+    sleep(k2)
 
 cleanup()
