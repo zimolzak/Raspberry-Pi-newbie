@@ -7,3 +7,8 @@ def clear(pinlist):
     for p in pinlist:
         GPIO.output(p, GPIO.LOW)
     
+def encode(n, pinlist):
+    clear(pinlist)
+    for i, p in enumerate(pinlist):
+        if (n >> i) % 2:
+            light(p)
