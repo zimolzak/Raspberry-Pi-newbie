@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from strobe import letter, setup, cleanup
+from blinkenlights import letter, setup, cleanup
 
 pin = 11
 setup(pin)
