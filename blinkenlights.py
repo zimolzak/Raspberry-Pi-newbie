@@ -43,3 +43,14 @@ def letter(string, pin):
         if char == '.':
             dot(pin)
     sleep(letter_t)
+
+def rhythm(spec, bpm, pin):
+    sec_per_beat = 60.0 / bpm
+    half_cycle = sec_per_beat / 2.0
+    for char in spec:
+        if char == "1":
+            onoff(half_cycle, half_cycle, pin)
+        if char == "0":
+            sleep(sec_per_beat)
+
+
