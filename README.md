@@ -45,4 +45,4 @@ Blink software
 Hint: the band Rush likes Morse code, things in 10/4 time, and the
 city of Toronto.
 
-Usage: `sudo ./blinken.py`
+Usage: `sudo ./main.py`
