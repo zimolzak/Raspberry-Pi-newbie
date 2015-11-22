@@ -2,7 +2,7 @@
 
 from blinkenlights import setup, cleanup, rhythm
 
-pin = 11
+pin = 18
 tempo = 180 * 2
 setup(pin)
 for i in range(2):
