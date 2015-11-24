@@ -36,44 +36,51 @@ class Ball:
             sleep(0.2)
             clear(self.field_pins)
             sleep(0.2)
+    def swing_by(self, player):
+        if player.y == self.y:
+            self.hit()
+            return True
+        else:
+            self.miss()
+            return False
 
 class Player:
     def __init__(self, low, high):
         self.range = [low, high]
-        self.pos = random.choice(self.range)
+        self.y = random.randint(0,1)
         clear(self.range)
         for i in range(6):
-            light(self.pos)
+            light(self.range[self.y])
             sleep(0.1)
             clear(self.range)
             sleep(0.1)
-        light(self.pos)
+        light(self.range[self.y])
     def move(self, direction):
         assert (direction==0 or direction==1)
-        self.pos = self.range[direction]
+        self.y = direction
         clear(self.range)
-        light(self.pos)
+        light(self.range[self.y])
 
 myball = Ball(33, 29, 32, 18)
 p1 = Player(37, 31)
 p2 = Player(36, 22)
 
-both_p = []
+order = []
 if myball.x == 0:
-    both_p = [p1, p2]
+    order = [p1, p2]
 else:
-    both_p = [p2, p1]
+    order = [p2, p1]
 
 for i in range(5):
-    both_p[0].move(myball.y) # auto move
+    order[0].move(myball.y) # auto move
     sleep(0.5)
-    myball.hit()
-    both_p[1].move(myball.y) # auto move
+    myball.swing_by(order[0])
+    order[1].move(myball.y) # auto move
     sleep(0.5)
-    myball.hit()
+    myball.swing_by(order[1])
 
-both_p[0].move(myball.y ^ 1) # auto fail
+order[0].move(myball.y ^ 1) # auto fail
 sleep(0.5)
-myball.miss()
+myball.swing_by(order[0])
 
 cleanup()
