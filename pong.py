@@ -71,16 +71,23 @@ if myball.x == 0:
 else:
     order = [p2, p1]
 
-for i in range(5):
-    order[0].move(myball.y) # auto move
-    sleep(0.5)
-    myball.swing_by(order[0])
-    order[1].move(myball.y) # auto move
-    sleep(0.5)
-    myball.swing_by(order[1])
+def imperfect(player, ball, success_rate=0.9):
+    assert 0 <= success_rate <= 1
+    if random.uniform(0,1) < success_rate:
+        player.move(ball.y)
+    else:
+        player.move(ball.y ^ 1)
 
-order[0].move(myball.y ^ 1) # auto fail
-sleep(0.5)
-myball.swing_by(order[0])
+while True:
+    imperfect(order[0], myball)
+    sleep(0.5)
+    inplay = myball.swing_by(order[0])
+    if not inplay:
+        break
+    imperfect(order[1], myball)
+    sleep(0.5)
+    inplay = myball.swing_by(order[1])
+    if not inplay:
+        break
 
 cleanup()
