@@ -37,7 +37,7 @@ class Ball:
             clear(self.field_pins)
             sleep(0.2)
     def swing_by(self, player):
-        if player.pos == self.y:
+        if player.y == self.y:
             self.hit()
             return True
         else:
@@ -47,19 +47,19 @@ class Ball:
 class Player:
     def __init__(self, low, high):
         self.range = [low, high]
-        self.pos = random.choice(self.range)
+        self.y = random.randint(0,1)
         clear(self.range)
         for i in range(6):
-            light(self.pos)
+            light(self.range[self.y])
             sleep(0.1)
             clear(self.range)
             sleep(0.1)
-        light(self.pos)
+        light(self.range[self.y])
     def move(self, direction):
         assert (direction==0 or direction==1)
-        self.pos = self.range[direction]
+        self.y = direction
         clear(self.range)
-        light(self.pos)
+        light(self.range[self.y])
 
 myball = Ball(33, 29, 32, 18)
 p1 = Player(37, 31)
