@@ -12,7 +12,7 @@ setup(pins)
 clear(pins)
 for i in pins:
     light(i)
-    sleep(0.25)
+    sleep(0.1)
     clear(pins)
 
 class Ball:
@@ -57,15 +57,23 @@ class Player:
 myball = Ball(33, 29, 32, 18)
 p1 = Player(37, 31)
 p2 = Player(36, 22)
-myball.hit()
-p1.move(1)
-myball.hit()
-p2.move(0)
-myball.hit()
-p1.move(0)
-myball.hit()
-p2.move(1)
-myball.hit()
+
+both_p = []
+if myball.x == 0:
+    both_p = [p1, p2]
+else:
+    both_p = [p2, p1]
+
+for i in range(5):
+    both_p[0].move(myball.y) # auto move
+    sleep(0.5)
+    myball.hit()
+    both_p[1].move(myball.y) # auto move
+    sleep(0.5)
+    myball.hit()
+
+both_p[0].move(myball.y ^ 1) # auto fail
+sleep(0.5)
 myball.miss()
 
 cleanup()
