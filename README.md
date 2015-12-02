@@ -59,3 +59,26 @@ Eventually when it worked, I just did:
 Check out file `wpa_supplicant.conf` in this repo for the code that
 worked. I am not sure whether `key_mgmt=WPA-PSK` ends up getting
 auto-changed to something else for my particular network.
+
+
+Play with my other repos
+--------
+
+* `curl -O https://pypi.python.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz`
+
+* `sudo apt-get update`
+
+* `sudo apt-get install python-dev`
+
+* `sudo python setup.py build`
+
+* `sudo python setup.py install`
+
+* `python setup.py test`
+
+* curl -O 'https://pypi.python.org/packages/source/g/gensafeprime/gensafeprime-1.5.tar.gz'
+
+* etc
+
+
+
