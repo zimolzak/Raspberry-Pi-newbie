@@ -10,20 +10,19 @@ GPIO.setup(pin_switch, GPIO.IN) # requires root
 GPIO.setup(pin_led, GPIO.OUT) # requires root
 GPIO.output(pin_led, GPIO.LOW)
 
-period = 0.33
-
+period = 0.05
+duration = 8
+samples = int(duration / float(period))
 
 series = []
 
-for i in range(24):
-    z = GPIO.input(pin_switch)
-    if z:
-        print "not pushed"
-        series.append(0)
-    else:
-        print "pushed"
-        series.append(1)
+print "inputting"
+
+for i in range(samples):
+    series.append((GPIO.input(pin_switch)) ^ 1)
     sleep(period)
+
+print "outputting"
 
 for v in series:
     if v:
