@@ -20,6 +20,8 @@ Running software to play with LEDs
 
 `sudo ./pong.py`
 
+`sudo ./switch.py`
+
 
 Wiring for blinkenlights
 --------
@@ -37,6 +39,9 @@ as "17" meaning GPIO 17) --> long leg of LED --> Short leg of LED -->
 3. Wiring multiple LEDs to the same common resistor & ground can cause
 some of them not to light. I hypothesize unequal voltages of the GPIO
 pins, and/or unequal internal resistances of the LEDs.
+
+4. Pull up goes as follows: +3 --> 1k ohm --> GPIO. Also 1k ohm -->
+switch --> GND.
 
 
 WiFi

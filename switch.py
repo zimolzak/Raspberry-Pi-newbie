@@ -10,13 +10,14 @@ GPIO.setup(pin_switch, GPIO.IN) # requires root
 GPIO.setup(pin_led, GPIO.OUT) # requires root
 GPIO.output(pin_led, GPIO.LOW)
 
-period = 0.05
+period = 0.02
 duration = 8
 samples = int(duration / float(period))
+freq = 1.0 / period
 
 series = []
 
-print "inputting"
+print "inputting", samples, "samples,", "at", freq, "Hz"
 
 for i in range(samples):
     series.append((GPIO.input(pin_switch)) ^ 1)
