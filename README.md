@@ -47,23 +47,42 @@ switch --> GND.
 WiFi
 --------
 
+**TL;DR:** wpa_supplicant.conf is rather hellish.
+
+
+
 The default way that `wpa_supplicant` gets started is:
+`/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i
+wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf`
 
-`/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf`
-
-Here is a good way to find out what is going on:
-
-`sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -d`
+Here is a good way to watch what is going on: `sudo wpa_supplicant
+-c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 -d`
 
 `wpa_gui &` is helpful for clicking and watching and such.
 
-Eventually when it worked, I just did:
+Also consider `watch tail -n 15 /var/log/syslog`
 
-`sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 &`
+Eventually when it worked [but merely manually], I just did: `sudo
+wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -iwlan0 &`
 
 Check out file `wpa_supplicant.conf` in this repo for the code that
-worked. I am not sure whether `key_mgmt=WPA-PSK` ends up getting
-auto-changed to something else for my particular network.
+worked. I think `key_mgmt=WPA-PSK` ends up getting auto-changed to
+CCMP or something, on my particular network.
+
+To get it to work **finally** automatically on reboot, the issue was
+ap_scan=2 incompatibility with nl80211. Leaving off the forcing of
+nl80211 driver from the command line would work, but clearly that
+required manually starting wpa_supplicant, as it runs it "the default
+way" (see above) on reboot. So basically I had to read
+http://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf
+which is different from my
+/usr/share/doc/wpa_supplicant/examples/wpa_supplicant.conf.gz file!!
+Key quote:
+
+ # Note: ap_scan=2 should not be used with the nl80211 driver interface (the
+ # current Linux interface). ap_scan=1 is optimized work working with nl80211.
+ # For finding networks using hidden SSID, scan_ssid=1 in the network block can
+ # be used with nl80211.
 
 
 Play with my other repos
@@ -84,6 +103,3 @@ Play with my other repos
 * curl -O 'https://pypi.python.org/packages/source/g/gensafeprime/gensafeprime-1.5.tar.gz'
 
 * etc
-
-
-
