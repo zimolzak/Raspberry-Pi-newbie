@@ -79,10 +79,10 @@ which is different from my
 /usr/share/doc/wpa_supplicant/examples/wpa_supplicant.conf.gz file!!
 Key quote:
 
- # Note: ap_scan=2 should not be used with the nl80211 driver interface (the
- # current Linux interface). ap_scan=1 is optimized work working with nl80211.
- # For finding networks using hidden SSID, scan_ssid=1 in the network block can
- # be used with nl80211.
+    # Note: ap_scan=2 should not be used with the nl80211 driver interface (the
+    # current Linux interface). ap_scan=1 is optimized work working with nl80211.
+    # For finding networks using hidden SSID, scan_ssid=1 in the network block can
+    # be used with nl80211.
 
 
 Play with my other repos
