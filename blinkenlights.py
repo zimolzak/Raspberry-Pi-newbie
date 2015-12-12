@@ -56,3 +56,12 @@ def rhythm(spec, bpm, pin):
             onoff(half_cycle, half_cycle, pin)
         if char == "0":
             sleep(sec_per_beat)
+
+def dimmer(proportion, duration, pin):
+    hertz = 60
+    cycles = hertz * duration
+    period = 1.0 / hertz
+    on = proportion * period
+    off = period - on
+    for i in range(cycles):
+        onoff(on, off, pin)
