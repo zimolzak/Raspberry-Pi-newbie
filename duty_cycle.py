@@ -10,7 +10,9 @@ up = range(10)
 down = range(9)
 down.reverse()
 
-period = 1.0 # seconds
+bpm = 70
+
+period = 60.0 / bpm # seconds
 
 time_per_level = period / len(up + down)
 
