@@ -1,3 +1,5 @@
+"""Library of functions for encoding a number in LEDs."""
+
 import RPi.GPIO as GPIO
 
 def light(pin):

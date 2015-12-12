@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+"""Input the pattern/rhythm of user pressing a switch, and mimic that
+with an LED."""
+
 import RPi.GPIO as GPIO
 from time import sleep
 

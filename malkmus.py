@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Rhythm of 'Shake It Around' by Stephen Malkmus."""
+
 from blinkenlights import setup, cleanup, rhythm
 
 pin = 18

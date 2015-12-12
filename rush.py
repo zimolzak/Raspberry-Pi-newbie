@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Rhythm of 'YYZ' by Rush."""
+
 from blinkenlights import letter, setup, cleanup
 
 pin = 18

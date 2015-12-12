@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Count upwards in binary using four LEDs."""
+
 from blinkenlights import setup, cleanup
 from fourleds import encode, light, clear
 from time import sleep

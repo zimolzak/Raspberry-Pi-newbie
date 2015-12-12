@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+"""Make four LEDs ascend and descend, at a pleasant variety of
+rates."""
+
 from blinkenlights import setup, cleanup
 from fourleds import light, clear
 from time import sleep

@@ -1,10 +1,12 @@
-# Adapted from code by Rahul Kar
+# Library of various functions for lighting LEDs.
+# Adapted from code by Rahul Kar.
 # http://www.rpiblog.com/2012/09/using-gpio-of-raspberry-pi-to-blink-led.html
 
 import RPi.GPIO as GPIO
 from time import sleep
 
 def onoff(ontime, offtime, pin):
+    """Base function that does the real work calling GPIO functions."""
     GPIO.output(pin, GPIO.HIGH)
     sleep(ontime)
     GPIO.output(pin, GPIO.LOW)
@@ -37,6 +39,7 @@ def dot(pin):
     onoff(dot_t, pause_t, pin)
 
 def letter(string, pin):
+    """Input a string of .- and flash in Morse."""
     for char in string:
         if char == '-':
             dash(pin)
@@ -45,6 +48,7 @@ def letter(string, pin):
     sleep(letter_t)
 
 def rhythm(spec, bpm, pin):
+    """Input a string of 01 and flash at certain tempo."""
     sec_per_beat = 60.0 / bpm
     half_cycle = sec_per_beat / 2.0
     for char in spec:
@@ -52,5 +56,3 @@ def rhythm(spec, bpm, pin):
             onoff(half_cycle, half_cycle, pin)
         if char == "0":
             sleep(sec_per_beat)
-
-

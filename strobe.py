@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Just strobe at certain freq for certain time."""
+
 from blinkenlights import strobe, setup, cleanup
 
 hertz = 10
