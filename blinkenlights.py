@@ -63,5 +63,5 @@ def dimmer(proportion, duration, pin):
     period = 1.0 / hertz
     on = proportion * period
     off = period - on
-    for i in range(cycles):
+    for i in range(int(cycles)):
         onoff(on, off, pin)
