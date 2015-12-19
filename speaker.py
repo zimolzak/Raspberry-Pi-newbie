@@ -15,18 +15,23 @@ GPIO.setup(pin, GPIO.OUT)
 hertz = 440
 dur = 0.2
 
-def play(pitches, dur=0.1, base=440, pin=26):
+def play(pitches, dur=0.4, base=440, pin=26):
     for p in pitches:
         assert type(p) == int
         strobe(base * 2.0 ** (p / 12.0), dur, pin)
 
 ## a bb b c db d eb e f gb g  ab a  bb b  c
 ## 0 1  2 3 4  5  6 7 8  9 10 11 12 13 14 15
+##        3    5    7 8    10    12 13    15
+##       sol   la  ti do   re    mi fa    sol
 
-play([3,3,3,3,5,5,5,5,3,3,3,3,8,8,8,8,7,7,7,7,7,7,7,7]) # happy birthday to you
-play([3,3,3,3,5,5,5,5,3,3,3,3,10,10,10,10,8,8,8,8,8,8,8,8]) # happy birthday to you
-play([3,3,3,3,15,15,15,15,12,12,12,12,8,8,8,8,7,7,7,7,5,5,5,5]) 
-#     happy   birth       day         dear    some    one
-play([13,13,13,13,12,12,12,12,8,8,8,8,10,10,10,10,8,8,8,8,8,8,8,8]) 
+play([3, 5, 3, 8, 7, 7])
+#   hap bir da to yoou
+play([3, 5, 3, 10, 8, 8])
+#   hap bir da to  yoou
+play([3, 15, 12, 8, 7, 5]) 
+#    hap bir day de so one
+play([13, 12, 8, 10, 8, 8]) 
+#     hap bir day to yoou
 
 GPIO.cleanup()
