@@ -7,13 +7,8 @@ I recommend a 1k-ohm resistor. Who needs a DAC?
 
 import RPi.GPIO as GPIO
 from blinkenlights import strobe
-
-pin = 26
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
-
-hertz = 440
-dur = 0.2
 
 def play(pitches, dur=0.4, base=440, pin=26):
     for p in pitches:
