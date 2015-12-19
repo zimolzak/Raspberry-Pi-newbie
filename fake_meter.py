@@ -4,7 +4,8 @@ import RPi.GPIO as GPIO
 from time import sleep
 from random import randint
 
-pins = [26, 6, 13, 22]
+pins = [5, 22, 27, 17, 12, 25, 23, 18]
+#pins = [26, 6, 13, 22]
 npins = len(pins)
 
 GPIO.setmode(GPIO.BCM)  # GPIO.BOARD
@@ -19,13 +20,16 @@ def display(value):
 
 x = 2
 
-while(True): #fixme : try.. except KeyboardInterrupt
-    x = x + randint(-1,1)
-    if x > npins:
-        x = npins
-    if x < 0:
-        x = 0
-    display(x)
-    sleep(0.2)
+try:
+    while(True):
+        x = x + randint(-1,1)
+        if x > npins:
+            x = npins
+        if x < 0:
+            x = 0
+        display(x)
+        sleep(0.2)
+except KeyboardInterrupt:
+    pass
 
 GPIO.cleanup()

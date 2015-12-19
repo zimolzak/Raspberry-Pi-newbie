@@ -20,8 +20,11 @@ def display(character):
         if (ord(character) >> bit) % 2:
             GPIO.output(pins[bit], GPIO.HIGH)
 
-for c in pipe_contents:
-    display(c)
-    sleep(1)
+try:
+    for c in pipe_contents:
+        display(c)
+        sleep(1)
+except KeyboardInterrupt:
+    pass
 
 GPIO.cleanup()
