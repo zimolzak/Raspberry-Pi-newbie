@@ -10,14 +10,13 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
 
 hertz = 440
-dur = 0.333
+dur = 0.2
 
-strobe(hertz, dur, pin)
-strobe(hertz * 1.25, dur, pin)
-strobe(hertz * 1.5, dur, pin)
-strobe(hertz * 2, dur, pin)
-strobe(hertz * 1.5, dur, pin)
-strobe(hertz * 1.25, dur, pin)
-strobe(hertz, dur, pin)
+def play(pitches, dur=0.2, base=440, pin=26):
+    for p in pitches:
+        assert type(p) == int
+        strobe(base * 2.0 ** (int(p) / 12.0), dur, pin)
+
+play(range(1,14))
 
 GPIO.cleanup()
