@@ -2,12 +2,14 @@
 
 import RPi.GPIO as GPIO
 from time import sleep
-from random import randint
+import sys
 
 pins = [5, 22, 27, 17, 12, 25, 23, 18]
 pins.reverse()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pins, GPIO.OUT)
+
+pipe_contents = sys.stdin.read()
 
 def display(character):
     assert type(character) == type(str())
@@ -18,7 +20,7 @@ def display(character):
         if (ord(character) >> bit) % 2:
             GPIO.output(pins[bit], GPIO.HIGH)
 
-for c in "Hello, world!":
+for c in pipe_contents:
     display(c)
     sleep(1)
 
