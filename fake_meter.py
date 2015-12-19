@@ -19,7 +19,7 @@ def display(value):
 
 x = 2
 
-while(True):
+while(True): #fixme : try.. except KeyboardInterrupt
     x = x + randint(-1,1)
     if x > npins:
         x = npins
