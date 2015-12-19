@@ -22,6 +22,10 @@ Running software to play with LEDs
 
 `sudo ./switch.py`
 
+`sudo ./fake_meter.py`
+
+`cat pride_and_prejudice.txt | sudo ./ascii.py`
+
 
 Wiring for blinkenlights
 --------
