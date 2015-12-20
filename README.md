@@ -5,26 +5,33 @@ I just got a Raspberry Pi for my birthday. How do I make it work and
 do things?
 
 
-Running software to play with LEDs
+Achievements unlocked
 --------
 
-`sudo ./strobe.py`
+In the category of pure blinkenlight demos:
 
-`sudo ./rush.py`
+* Represent STDIN on LEDs, as either ASCII binary or on a
+  seven-segment display. We use the text of _Pride and Prejudice._
+  Example: `cat pride_and_prejudice.txt | sudo ./seven_segment.py &`
+* Count off the seconds in binary using LEDs.
+* Fade an LED in/out by varying the duty cycle.
+* Randomly varying LED bar graph meter.
+* Raspberry Pi plays pong with itself using LEDs.
+* Blink a single LED in rhythm of some programmed songs.
+* Make a strobe light LED.
+* Make a line of LEDs scan back and forth at random rates.
 
-`sudo ./malkmus.py`
+In the category of multimedia:
 
-`sudo ./main.py`
+* Use an LED as a light sensor.
+* Make musical square wave beeps on an old headphone that I cut up,
+  without using a digital-analog converter .
+* Record the rhythm of switch presses and play the rhythm back on an
+  LED.
 
-`sudo ./binary.py`
-
-`sudo ./pong.py`
-
-`sudo ./switch.py`
-
-`sudo ./fake_meter.py`
-
-`cat pride_and_prejudice.txt | sudo ./ascii.py`
+*Note:* to run, most of these just require `sudo ./pong.py` or
+equivalent. The exceptions are `ascii.py` and `seven_segment.py`,
+which require STDIN piped input. See above.
 
 
 Wiring for blinkenlights
