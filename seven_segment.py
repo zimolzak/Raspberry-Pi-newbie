@@ -28,6 +28,9 @@ alpha = dict(a='012345', b='13456', c='0146', d='23456', e='01346', f='0134',
 # not great: k   m  w  v x  z
 #            |-  3  uu u 7  2
 
+# fixme: most needed: ,  .  " ;   -  _  ' !  ?     : 1234567890
+# rough ideas         _| | || -_| -  _  ' =- -|_|  =
+
 try:
     for c in pipe_contents:
         c = c.lower()
