@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+"""Use an LED as a light detector.
+
+Wiring: I put the LED directly in series with the GPIO (no resistor).
+"""
+
 import RPi.GPIO as GPIO
 from time import sleep
 
