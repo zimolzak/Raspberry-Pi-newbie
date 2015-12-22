@@ -15,12 +15,18 @@ setup(pins)
 
 t0 = 0.4
 
-try:
+def abab(x, t):
+    assert type(x) == int
+    xmax = (2 ** len(pins)) - 1
+    assert 0 <= x <= xmax
     for i in range(4):
-        encode(5, pins)
-        sleep(0.4)
-        encode(10, pins)
-        sleep(0.4)
+        encode(x, pins)
+        sleep(t)
+        encode(xmax - x, pins)
+        sleep(t)
+
+try:
+    abab(5, t0)
 except KeyboardInterrupt:
     pass
 
