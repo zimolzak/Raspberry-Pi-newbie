@@ -8,13 +8,15 @@ LEDs, there are 64 basic pattern possibilities (2**4 LED * 2 patterns
 * 2 tempi).
 """
 
-from blinkenlights import setup, cleanup
+import RPi.GPIO as GPIO
 from fourleds import light, clear, encode
 from time import sleep
 from random import randint
 
-pins = [32, 22, 18, 16]
-setup(pins)
+pins = [23, 24, 22, 13]
+GPIO.setmode(GPIO.BCM) 
+GPIO.setup(pins, GPIO.OUT)
+
 t0 = 0.4 # Basic time unit for the rhythm
 xmax = (2 ** len(pins)) - 1
 
@@ -47,10 +49,10 @@ try:
     while(True):
         time_factor = randint(1,2)
         if randint(0,1):
-            abab(randint(0,xmax), t0 * time_factor)
+            abab(randint(1, xmax-1), t0 * time_factor)
         else:
-            aabb(randint(0,xmax), t0 * time_factor)
+            aabb(randint(1, xmax-1), t0 * time_factor)
 except KeyboardInterrupt:
     pass
 
-cleanup()
+GPIO.cleanup()
