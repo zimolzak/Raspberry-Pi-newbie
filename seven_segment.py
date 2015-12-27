@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Drive a cheesy 7-segment display made of LEDs."""
 
 import RPi.GPIO as GPIO
@@ -9,8 +7,6 @@ import sys
 pins = [17, 23, 24, 22, 27, 25, 5]
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pins, GPIO.OUT)
-
-pipe_contents = sys.stdin.read()
 
 def light_segments(segstring):
     assert type(segstring) == str
@@ -52,15 +48,14 @@ alpha['0'] = '012456'
 # not great: k   m  w  v x  z
 #            |-  3  uu u 7  2
 
-try:
-    for c in pipe_contents:
-        c = c.lower()
-        if c in alpha.keys():
-            light_segments(alpha[c])
-        else: # no lights for non-letters
-            light_segments('')
-        sleep(2)
-except KeyboardInterrupt:
-    pass
-
+def print_leds(character):
+    assert type(character) == str
+    assert len(character) == 1
+    c = character.lower()
+    if c in alpha.keys():
+        light_segments(alpha[c])
+    else: # no lights for non-letters
+        light_segments('')
+    sleep(2)
+    
 GPIO.cleanup()
