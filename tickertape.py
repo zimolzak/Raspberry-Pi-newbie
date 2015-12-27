@@ -10,17 +10,15 @@ pins = [17, 23, 24, 22, 27, 25, 5]
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pins, GPIO.OUT)
 
-print_leds(' ')
+print_leds(' ', pins)
 
 symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK']
 
-ticker_string = ''
-print "Downloading", len(symbols), "symbols..."
 for s in symbols:
-    ticker_string += (s + ' ' + get_price(s) + ' ' + get_change(s) + ' ')
-print "Done!"
-
-print_leds(ticker_string, pins, 1)
-#print_leds('try', pins, 1)
+    try:
+        ticker_string = s + ' ' + get_price(s) + ' ' + get_change(s) + ' '
+    except KeyboardInterrupt:
+        break
+    print_leds(ticker_string, pins, 1)
 
 GPIO.cleanup()
