@@ -6,11 +6,11 @@ import RPi.GPIO as GPIO
 from seven_segment import print_leds
 from ystockquote import get_price, get_change
 
-pins = [17, 23, 24, 22, 27, 25, 5] ## FIXME - annoying and bad, in 2 places
+pins = [17, 23, 24, 22, 27, 25, 5]
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pins, GPIO.OUT)
 
-## clear all - FIXME
+print_leds(' ')
 
 symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK']
 
