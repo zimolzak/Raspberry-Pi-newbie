@@ -6,15 +6,15 @@ with an LED."""
 import RPi.GPIO as GPIO
 from time import sleep
 
-pin_switch = 7
-pin_led = 22
-GPIO.setmode(GPIO.BOARD) 
+pin_switch = 12
+pin_led = 21
+GPIO.setmode(GPIO.BCM) 
 GPIO.setup(pin_switch, GPIO.IN) # requires root
 GPIO.setup(pin_led, GPIO.OUT) # requires root
 GPIO.output(pin_led, GPIO.LOW)
 
 period = 0.02
-duration = 8
+duration = 10
 samples = int(duration / float(period))
 freq = 1.0 / period
 
