@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+"""Mimic a one-dimensional bar graph.
+
+Control an arbitrary number of LEDs. Make them light up or turn off,
+one at a time, starting at one end of the list. Randomly decide
+whether to go up or down.
+"""
+
 import RPi.GPIO as GPIO
 from time import sleep
 from random import randint

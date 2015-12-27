@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+"""Make an LED pulsate by fading in/out, varying the duty cycle.
+"""
+
 from blinkenlights import dimmer, setup, cleanup
 
 pin = 18

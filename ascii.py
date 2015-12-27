@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Show STDIN on 8 LEDs using ASCII."""
+
 import RPi.GPIO as GPIO
 from time import sleep
 import sys

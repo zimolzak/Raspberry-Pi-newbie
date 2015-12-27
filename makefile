@@ -1,3 +1,6 @@
+nonletters.txt : pride_and_prejudice.txt
+	./nonletters.pl pride_and_prejudice.txt |sort | uniq -c | sort -nr > nonletters.txt
+
 pride_and_prejudice.txt : pg1342.txt
 	tail --lines=+31 pg1342.txt | head --lines=-365 > pride_and_prejudice.txt
 
