@@ -12,14 +12,14 @@ GPIO.setup(pins, GPIO.OUT)
 
 symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK']
 
-ticker_string = ' '.join(symbols)
+ticker_string = ''
+for s in symbols:
+    ticker_string += (s + ' ' + get_price(s) + ' ' + get_change(s) + ' ')
 
-print ticker_string
-
-# try:
-#     for c in ticker_string:
-#         print_leds(c)
-# except KeyboardInterrupt:
-#     pass
+try:
+    for c in ticker_string:
+        print_leds(c)
+except KeyboardInterrupt:
+    pass
 
 GPIO.cleanup()
