@@ -12,10 +12,6 @@ GPIO.setup(pins, GPIO.OUT)
 
 pipe_contents = sys.stdin.read()
 
-try:
-    for c in pipe_contents:
-        print_leds(c)
-except KeyboardInterrupt:
-    pass
+print_leds(pipe_contents, pins)
 
 GPIO.cleanup()
