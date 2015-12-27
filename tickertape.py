@@ -10,6 +10,8 @@ pins = [17, 23, 24, 22, 27, 25, 5] ## FIXME - annoying and bad, in 2 places
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pins, GPIO.OUT)
 
+## clear all - FIXME
+
 symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK']
 
 ticker_string = ''
@@ -18,10 +20,7 @@ for s in symbols:
     ticker_string += (s + ' ' + get_price(s) + ' ' + get_change(s) + ' ')
 print "Done!"
 
-try:
-    for c in ticker_string:
-        print_leds(c, pins, 1)
-except KeyboardInterrupt:
-    pass
+print_leds(ticker_string, pins, 1)
+#print_leds('try', pins, 1)
 
 GPIO.cleanup()

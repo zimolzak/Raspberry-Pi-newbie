@@ -48,14 +48,17 @@ alpha['0'] = '012456'
 # not great: k   m  w  v x  z
 #            |-  3  uu u 7  2
 
-def print_leds(character, pins, delay=2):
-    assert type(character) == str
-    assert len(character) == 1
-    c = character.lower()
-    if c in alpha.keys():
-        light_segments(alpha[c], pins)
-    else: # no lights for non-letters
-        light_segments('', pins)
-    sleep(delay)
+def print_leds(string, pins, delay=2):
+    assert type(string) == str
+    try:
+        for ch in string:
+            c = ch.lower()
+            if c in alpha.keys():
+                light_segments(alpha[c], pins)
+            else: # no lights for non-letters
+                light_segments('', pins)
+            sleep(delay)
+    except KeyboardInterrupt:
+        return
     
 GPIO.cleanup()
