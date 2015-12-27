@@ -13,12 +13,14 @@ GPIO.setup(pins, GPIO.OUT)
 symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK']
 
 ticker_string = ''
+print "Downloading", len(symbols), "symbols..."
 for s in symbols:
     ticker_string += (s + ' ' + get_price(s) + ' ' + get_change(s) + ' ')
+print "Done!"
 
 try:
     for c in ticker_string:
-        print_leds(c)
+        print_leds(c, pins, 1)
 except KeyboardInterrupt:
     pass
 

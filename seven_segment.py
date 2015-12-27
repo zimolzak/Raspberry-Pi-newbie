@@ -4,11 +4,11 @@ import RPi.GPIO as GPIO
 from time import sleep
 import sys
 
-pins = [17, 23, 24, 22, 27, 25, 5]
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pins, GPIO.OUT)
+#pins = [17, 23, 24, 22, 27, 25, 5]
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(pins, GPIO.OUT)
 
-def light_segments(segstring):
+def light_segments(segstring, pins):
     assert type(segstring) == str
     for p in pins:
         GPIO.output(p, GPIO.LOW) # reset the many
@@ -48,14 +48,14 @@ alpha['0'] = '012456'
 # not great: k   m  w  v x  z
 #            |-  3  uu u 7  2
 
-def print_leds(character):
+def print_leds(character, pins, delay=2):
     assert type(character) == str
     assert len(character) == 1
     c = character.lower()
     if c in alpha.keys():
-        light_segments(alpha[c])
+        light_segments(alpha[c], pins)
     else: # no lights for non-letters
-        light_segments('')
-    sleep(2)
+        light_segments('', pins)
+    sleep(delay)
     
 GPIO.cleanup()
