@@ -4,10 +4,6 @@ import RPi.GPIO as GPIO
 from time import sleep
 import sys
 
-#pins = [17, 23, 24, 22, 27, 25, 5]
-#GPIO.setmode(GPIO.BCM)
-#GPIO.setup(pins, GPIO.OUT)
-
 def light_segments(segstring, pins):
     assert type(segstring) == str
     for p in pins:
@@ -48,6 +44,8 @@ alpha['0'] = '012456'
 # not great: k   m  w  v x  z
 #            |-  3  uu u 7  2
 
+# FIXME - add the + character
+
 def print_leds(string, pins, delay=2):
     assert type(string) == str
     try:
@@ -60,5 +58,3 @@ def print_leds(string, pins, delay=2):
             sleep(delay)
     except KeyboardInterrupt:
         return
-    
-GPIO.cleanup()
