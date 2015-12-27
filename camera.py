@@ -2,6 +2,8 @@
 
 """Test Raspberry Pi camera!"""
 
+# http://picamera.readthedocs.org/en/release-1.10/index.html
+
 import picamera
 import sys
 from fractions import Fraction
