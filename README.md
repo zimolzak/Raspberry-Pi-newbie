@@ -28,13 +28,15 @@ In the category of multimedia:
   without using a digital-analog converter .
 * Record the rhythm of switch presses and play the rhythm back on an
   LED.
+* Low light camera photos
+* Temperature sensor controls LEDs.
 
 *Note:* to run, most of these just require `sudo ./pong.py` or
 equivalent. The exceptions are `ascii.py` and `seven_segment.py`,
 which require STDIN piped input. See above.
 
 
-Wiring for blinkenlights
+Wiring
 --------
 
 1. Note to self. Inside my Pi box, the red stripe on ribbon connects
@@ -54,6 +56,11 @@ pins, and/or unequal internal resistances of the LEDs.
 4. Pull up goes as follows: +3 --> 1k ohm --> GPIO. Also 1k ohm -->
 switch --> GND.
 
+5. Temp sensor: 
+    * red --> 3V3
+    * black --> GND
+    * yellow --> GPIO 4
+    * red --> 1k ohm --> yellow
 
 WiFi
 --------
