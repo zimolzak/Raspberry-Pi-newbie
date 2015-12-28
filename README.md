@@ -61,6 +61,8 @@ switch --> GND.
     * black --> GND
     * yellow --> GPIO 4
     * red --> 1k ohm --> yellow
+    * Add `dtoverlay=w1-gpio-pullup,gpiopin=4` to /boot/config.txt
+    * sudo modprobe w1-gpio; sudo modprobe w1-therm
 
 WiFi
 --------
