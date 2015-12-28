@@ -14,14 +14,19 @@ camera = picamera.PiCamera()
 camera.vflip = True
 camera.hflip = True
 
-camera.framerate = Fraction(1, 6)
-camera.shutter_speed = 4000000
-#camera.exposure_mode = 'off'
-camera.iso = 1600
+## Low light
+#camera.framerate = Fraction(1, 6)
+#camera.shutter_speed = 4000000
+#camera.iso = 1600
+
 print "sleep"
-sleep(4)
+sleep(2)
 print "go"
 
+## I don't use this:
+#camera.exposure_mode = 'off'
+
+## Defaults
 # camera.sharpness = 0
 # camera.contrast = 0
 # camera.brightness = 50
