@@ -36,10 +36,12 @@ def represent(temperature):
 try:
     while True:
         lines = open(device_file, 'r').readlines()
-        t = int(lines[1][-6:])
+        string = lines[1][-6:].replace('=', '') 
+        t = int(string)
         temp_c = t / 1000.0
         temp_f = temp_c * 9.0 / 5.0 + 32.0
         represent(temp_f)
+        print temp_f
         sleep(1)
 except KeyboardInterrupt:
     pass
