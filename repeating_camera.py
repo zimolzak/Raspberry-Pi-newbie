@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
-"""Test Raspberry Pi camera!"""
+"""Test Raspberry Pi camera!
+
+Just rewrite the same filename again and again. Useful for pointing
+the camera in the right direction, etc.
+"""
 
 import picamera
 import sys
@@ -10,6 +14,7 @@ filename = sys.argv[1]
 camera = picamera.PiCamera()
 camera.vflip = True
 camera.hflip = True
+camera.rotation = 90
 camera.resolution = (1296, 972) #exactly half
 
 try:
