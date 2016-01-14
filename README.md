@@ -64,6 +64,16 @@ switch --> GND.
     * Add `dtoverlay=w1-gpio-pullup,gpiopin=4` to /boot/config.txt
     * sudo modprobe w1-gpio; sudo modprobe w1-therm
 
+LCD
+--------
+* `dtparam=i2c_arm=on` to /boot/config.txt
+* sudo modprobe i2c-dev
+* sudo apt-get install i2c-tools
+* i2cdetect 1
+* sudo apt-get install lcdproc
+* LCDd -c LCDd.conf &
+* lcdproc -f -c lcdproc.conf
+
 WiFi
 --------
 
