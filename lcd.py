@@ -4,7 +4,7 @@ from telnetlib import Telnet
 import time
 import sys
 
-tn = Telnet('192.168.1.15', 13666, None)
+tn = Telnet('127.0.0.1', 13666, None)
 pipe_contents = sys.stdin.read()
 pipe_contents = pipe_contents.replace('\n', ' ')
 
