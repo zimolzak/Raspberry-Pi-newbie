@@ -30,6 +30,9 @@ In the category of multimedia:
   LED.
 * Low light camera photos
 * Temperature sensor controls LEDs.
+* Time lapse photography
+* Motion detection triggered camera
+* Drive an LCD. `cat pride_and_prejudice.txt | ./lcd.py`
 
 *Note:* to run, most of these just require `sudo ./pong.py` or
 equivalent. The exceptions are `ascii.py` and `seven_segment.py`,
