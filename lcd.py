@@ -1,20 +1,20 @@
+#!/usr/bin/env python
+
 from telnetlib import Telnet
 import time
-tn = Telnet('192.168.1.15', 13666, None)
+import sys
 
-#tn.interact()
+tn = Telnet('192.168.1.15', 13666, None)
+pipe_contents = sys.stdin.read()
+pipe_contents = pipe_contents.replace('\n', ' ')
 
 tn.write("hello\n")
 tn.write("screen_add s1\n")
 tn.write("screen_set s1 -priority 1\n")
 tn.write("widget_add s1 w1 string\n")
 tn.write("widget_add s1 w2 string\n")
-tn.write("widget_set s1 w1 1 1 {It is a truth u}\n")
-tn.write("widget_set s1 w2 1 2 {niversally ackno}\n")
-print "sleeping"
-time.sleep(5)
 
-def lcd_string(x, telnet_obj, delay=5):
+def lcd_string(x, telnet_obj, delay=2):
     L = []
     for i in range(len(x)):
         if i % (15+16) == 0:
@@ -26,4 +26,4 @@ def lcd_string(x, telnet_obj, delay=5):
         telnet_obj.write("widget_set s1 w2 1 2 {" + s2 + "}\n")
         time.sleep(delay)
 
-lcd_string('abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz', tn)
+lcd_string(pipe_contents, tn)
