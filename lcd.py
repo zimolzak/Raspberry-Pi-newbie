@@ -2,12 +2,8 @@
 
 from telnetlib import Telnet
 import time
-import sys
 
 tn = Telnet('192.168.1.4', 13666, None)
-pipe_contents = sys.stdin.read()
-pipe_contents = pipe_contents.replace('\n', ' ')
-
 tn.write("hello\n")
 tn.write("screen_add s1\n")
 tn.write("screen_set s1 -priority 1\n")
@@ -25,5 +21,3 @@ def lcd_string(x, telnet_obj, delay=2):
         telnet_obj.write("widget_set s1 w1 1 1 {" + s1 + "}\n")
         telnet_obj.write("widget_set s1 w2 1 2 {" + s2 + "}\n")
         time.sleep(delay)
-
-lcd_string(pipe_contents, tn)
