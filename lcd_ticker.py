@@ -35,7 +35,7 @@ def compact_quote(symbol):
         Cp = int(round(float(C) / float(P) * 100))
     except ValueError:
         Cp = '_'
-    return '{} {} {}% [{} {}] PE {}'.format(symbol, P, Cp, L52, H52, PE)
+    return '{} {} {}% [{} {}] PE {}'.format(symbol, P, Cp, L52, H52, PE)[0:31]
 
 while(True):
     try:
