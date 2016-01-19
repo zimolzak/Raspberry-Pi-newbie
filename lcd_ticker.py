@@ -43,7 +43,7 @@ while(True):
     try:
         for s in symbols:
             printme = compact_quote(s)
-            lcd_string(printme, tn, 15)
             print printme
+            lcd_string(printme, tn, 15)
     except KeyboardInterrupt:
         break
