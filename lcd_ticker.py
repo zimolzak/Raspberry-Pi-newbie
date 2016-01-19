@@ -5,9 +5,11 @@
 import ystockquote as y
 from lcd import lcd_string, tn
 
-symbols = ['AAPL', 'MSFT', 'F', 'T', 'KO', 'GOOG', 'SYK', 'DIS', 'GM', 'GE',
-           'BAC', 'IBM', 'C', 'AMZN', 'AET', 'DOW', 'INTC', 'PFE', 'MRK',
-           'RTN']
+symbols = ['^IXIC', 'YMH16.CBT', 'YHOO', 'AAPL', 'MSFT', 'F', 'T', 'KO',
+           'GOOG', 'SYK', 'DIS', 'GM',
+           'GE', 'BAC', 'IBM', 'C', 'AMZN', 'AET', 'DOW', 'INTC', 'PFE',
+           'MRK', 'RTN', 'BUD', 'LUV', 'K', 'V', 'X', 'BMY', 'JNJ', 'VRTX',
+           'MCD', 'TCLRY', 'AFFX', 'TWTR', 'WMT', 'YUM', 'WFM']
 
 def compact_quote(symbol):
     a = y.get_all(symbol)
@@ -40,6 +42,8 @@ def compact_quote(symbol):
 while(True):
     try:
         for s in symbols:
-            lcd_string(compact_quote(s), tn)
+            printme = compact_quote(s)
+            lcd_string(printme, tn, 15)
+            print printme
     except KeyboardInterrupt:
         break
