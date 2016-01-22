@@ -4,3 +4,4 @@
 !nonletters.txt
 *.jpg
 !source_before_motion.txt
+!database/file_locations.txt
