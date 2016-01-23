@@ -2,7 +2,7 @@
 library("RSQLite")
 library(ggplot2)
 
-con = dbConnect(RSQLite::SQLite(), "~/Desktop/local/Raspberry-Pi-newbie/temperature.db") # localize
+con = dbConnect(RSQLite::SQLite(), "/var/www/database/temperature.db")
 
 joined = dbGetQuery(con, 'select * from temperature left join roomdetails on roomdetails.id = temperature.roomid where roomid > 1')
 fixdate = cbind(joined, data.frame(posix_t = strptime(joined$datetime, '%Y-%m-%d %H:%M:%S', tz="GMT")))
