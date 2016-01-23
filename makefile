@@ -1,3 +1,8 @@
+all : nonletters.txt temperature.db
+
+temperature.db :
+	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
+
 nonletters.txt : pride_and_prejudice.txt
 	./nonletters.pl pride_and_prejudice.txt |sort | uniq -c | sort -nr > nonletters.txt
 

@@ -3,7 +3,7 @@
 library("RSQLite")
 library(ggplot2)
 
-con = dbConnect(RSQLite::SQLite(), "~/Desktop/temperature.db")
+con = dbConnect(RSQLite::SQLite(), "~/Desktop/local/Raspberry-Pi-newbie/temperature.db")
 
 joined = dbGetQuery(con, 'select * from temperature left join roomdetails on roomdetails.id = temperature.roomid where roomid > 1')
 
