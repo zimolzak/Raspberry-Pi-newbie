@@ -1,5 +1,9 @@
 all : nonletters.txt temperature.db
 
+update :
+	mv temperature.db temperature.bak
+	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
+
 temperature.db :
 	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
 
