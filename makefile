@@ -1,7 +1,12 @@
-all : nonletters.txt temperature.db
+plots : all_temps_plot split_plots
+
+all : nonletters.txt all_temps_plot split_plots
 
 all_temps_plot : update
 	./analyze_temperature.R
+
+split_plots :
+	./make_web_plots.R
 
 update :
 	mv temperature.db temperature.bak
@@ -15,6 +20,7 @@ nonletters.txt : pride_and_prejudice.txt
 
 pride_and_prejudice.txt : pg1342.txt
 	tail --lines=+31 pg1342.txt | head --lines=-365 > pride_and_prejudice.txt
+#fixme --lines, for OS X
 
 pg1342.txt :
 	curl -O 'http://www.gutenberg.org/cache/epub/1342/pg1342.txt'
