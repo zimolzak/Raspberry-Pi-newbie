@@ -7,3 +7,5 @@
 !database/file_locations.txt
 *.db
 *.bak
+*.pdf
+*.png

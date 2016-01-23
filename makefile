@@ -1,8 +1,11 @@
 all : nonletters.txt temperature.db
 
+all_temps_plot : update
+	./analyze_temperature.R
+
 update :
 	mv temperature.db temperature.bak
-	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
+	rsync pi@192.168.1.4:/var/www/database/temperature.db . 2> /dev/null
 
 temperature.db :
 	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
