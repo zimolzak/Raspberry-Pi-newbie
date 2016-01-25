@@ -28,7 +28,7 @@ try:
             data['temperature'] = str(temp_f)
             data['room'] = str(i+2)
             url_values = urllib.urlencode(data)
-            url = 'http://192.168.1.4/addtemperature'
+            url = 'http://127.0.0.1/addtemperature'
             full_url = url + '?' + url_values
             data = urllib2.urlopen(full_url)
             print data.read()
