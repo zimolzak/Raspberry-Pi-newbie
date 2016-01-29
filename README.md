@@ -33,10 +33,19 @@ In the category of multimedia:
 * Time lapse photography
 * Motion detection triggered camera
 * Drive an LCD. `cat pride_and_prejudice.txt | ./lcd.py`
+* Stock quotes to LCD
+* Multiple temperature sensors to SQLite database & analytics
 
-*Note:* to run, most of these just require `sudo ./pong.py` or
-equivalent. The exceptions are `ascii.py` and `seven_segment.py`,
-which require STDIN piped input. See above.
+*Note:* to run, many of these require `sudo ./pong.py` or
+equivalent. Ones that don't require sudo would include `ascii.py` and
+`seven_segment.py`, which require STDIN piped input. See above.
+
+
+Example temperature graphs
+--------
+![Graph of 3 temperature probes over time](https://dl.dropboxusercontent.com/u/38640281/github_img/threeTempVsTime.png)
+
+![Rather nice plot of temperature 1 vs temperature 2](https://dl.dropboxusercontent.com/u/38640281/github_img/catbedVsRadiator.png)
 
 
 Wiring
