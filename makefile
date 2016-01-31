@@ -1,12 +1,7 @@
-plots : all_temps_plot split_plots
-
-all : nonletters.txt all_temps_plot split_plots
-
-all_temps_plot : update
-	./analyze_temperature.R
-
-split_plots :
+split_plots : update
 	./make_web_plots.R
+
+all : nonletters.txt split_plots
 
 update :
 	mv temperature.db temperature.bak
