@@ -39,6 +39,11 @@ ggsave(A, file="~/Desktop/probes_60h_line.png")
 
 radiator = fixdate[fixdate$roomid == 2,]
 catbed = fixdate[fixdate$roomid == 3,]
+outside = fixdate[fixdate$roomid == 4,]
+
 p = qplot(radiator$temperature, catbed$temperature, geom="path", color=as.numeric(radiator$posix_t))
-ggsave(p, file="~/Desktop/2d_line.png")
+ggsave(p, file="~/Desktop/in_vs_rad.png")
+
+q = qplot(outside$temperature, catbed$temperature, geom="path", color=as.numeric(outside$posix_t))
+ggsave(q, file="~/Desktop/in_vs_out.png")
 
