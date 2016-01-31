@@ -8,6 +8,7 @@ joined = dbGetQuery(con, 'select * from temperature left join roomdetails on roo
 
 fixdate = cbind(joined, data.frame(posix_t = strptime(joined$datetime, '%Y-%m-%d %H:%M:%S', tz="GMT")))
 
+### Three plots of last 6 hours ###
 
 k = 6
 horizon = Sys.time() - 3600 * k
@@ -24,6 +25,7 @@ ggsave(R, file="~/Desktop/radiator.png")
 ggsave(C, file="~/Desktop/catbed.png")
 ggsave(O, file="~/Desktop/outside.png")
 
+### One plot, 3 lines, last 2.5 days ###
 
 d = 2.5
 horizon = Sys.time() - 3600 * d * 24
@@ -33,5 +35,10 @@ A = qplot(posix_t, temperature, data=last_d_days, colour=as.factor(room), xlab="
 
 ggsave(A, file="~/Desktop/probes_60h_line.png")
 
+### Temp vs temp ###
 
+radiator = fixdate[fixdate$roomid == 2,]
+catbed = fixdate[fixdate$roomid == 3,]
+p = qplot(radiator$temperature, catbed$temperature, geom="path", color=as.numeric(radiator$posix_t))
+ggsave(p, file="~/Desktop/2d_line.png")
 
