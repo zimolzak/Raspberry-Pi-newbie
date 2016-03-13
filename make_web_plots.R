@@ -47,3 +47,5 @@ ggsave(p, file="~/Desktop/in_vs_rad.png")
 q = qplot(outside$temperature, catbed$temperature, geom="path", color=as.numeric(outside$posix_t))
 ggsave(q, file="~/Desktop/in_vs_out.png")
 
+r = qplot(outside$temperature, radiator$temperature, geom="path", color=as.numeric(outside$posix_t))
+ggsave(r, file="~/Desktop/rad_vs_out.png")
