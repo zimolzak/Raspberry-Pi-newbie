@@ -5,7 +5,10 @@ all : nonletters.txt split_plots
 
 update :
 	mv temperature.db temperature.bak
-	rsync pi@192.168.1.4:/var/www/database/temperature.db . 2> /dev/null
+	rsync pi@192.168.1.8:/var/www/database/temperature.db . 2> /dev/null
+
+unbackup :
+	mv temperature.bak temperature.db
 
 temperature.db :
 	rsync --no-motd pi@192.168.1.4:/var/www/database/temperature.db .
