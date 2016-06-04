@@ -4,14 +4,13 @@ split_plots : update
 all : nonletters.txt split_plots
 
 update :
-	mv temperature.db temperature.bak
 	./auto_rsync.pl
+	mv temperature.db temperature.bak
+	cp temperature.new temperature.db
+	ls -lS temperature.*
 
 unbackup :
 	mv temperature.bak temperature.db
-
-temperature.db :
-	rsync --no-motd pi@192.168.1.12:/var/www/database/temperature.db .
 
 nonletters.txt : pride_and_prejudice.txt
 	./nonletters.pl pride_and_prejudice.txt |sort | uniq -c | sort -nr > nonletters.txt

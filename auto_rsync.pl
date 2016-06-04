@@ -15,7 +15,7 @@ for (@textblocks){
 
 die("No open port 22 found" . $!) if not defined($ras_pi_IP);
 
-my $cmd = 'rsync pi@' .
-    $ras_pi_IP . ':/var/www/database/temperature.db . 2> /dev/null';
+my $cmd = 'rsync pi@' . $ras_pi_IP .
+    ':/var/www/database/temperature.db temperature.new 2> /dev/null';
 print $cmd . "\n";
 system($cmd);
