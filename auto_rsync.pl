@@ -3,8 +3,10 @@ use strict;
 
 my $ras_pi_IP;
 my $nmap = `nmap -p T:22 192.168.1.0/26`;
+$nmap =~ s/\nStarting Nmap.*?\n//; # delete 2 intro lines
 my @textblocks = split(/\n\n/, $nmap);
 for (@textblocks){
+    next if /Nmap done/;
     my ($host, $updown, $header, $port) = split(/\n/);
     if ($port =~ /open/){
 	$host =~ s/Nmap scan report for 192/192/;
