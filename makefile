@@ -1,3 +1,6 @@
+one_plot : update
+	./60h_only.R
+
 split_plots : update
 	./make_web_plots.R
 
