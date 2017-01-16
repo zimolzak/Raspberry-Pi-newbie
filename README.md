@@ -76,6 +76,14 @@ switch --> GND.
     * Add `dtoverlay=w1-gpio-pullup,gpiopin=4` to /boot/config.txt
     * sudo modprobe w1-gpio; sudo modprobe w1-therm
 
+Shift register directly
+--------
+* sudo modprobe i2c-dev
+* i2cdetect 1
+* sudo apt-get install python-smbus
+
+
+
 LCD
 --------
 * `dtparam=i2c_arm=on` to /boot/config.txt
