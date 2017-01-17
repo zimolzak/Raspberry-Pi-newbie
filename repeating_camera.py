@@ -11,6 +11,7 @@ import sys
 from time import sleep
 from fractions import Fraction
 import shutil
+#import datetime as dt
 
 filename = sys.argv[1]
 camera = picamera.PiCamera()
@@ -29,10 +30,15 @@ camera.shutter_speed = int(sec * 1000000)
 camera.exposure_mode = 'off'
 camera.iso = 800
 
+#camera.annotate_background = picamera.Color('black')
+
 try:
     while True:
-        sleep(10)
+        sleep(5)
+#        s = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+#        camera.annotate_text = "duh"
         camera.capture("temp.jpg", quality=40)
         shutil.copy("temp.jpg", filename)
+#        print s
 except KeyboardInterrupt:
     pass
