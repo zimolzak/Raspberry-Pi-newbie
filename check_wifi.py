@@ -1,3 +1,6 @@
+## usage:
+##    python3 check_wifi.py
+
 from subprocess import check_output, CalledProcessError
 import re
 import time
@@ -12,7 +15,8 @@ while(True):
         outs = [check_output(cmd.split()) for cmd in commands]
     except CalledProcessError:
         print('one or both pings returned error, poss because 0 packets')
-        ### wpa_cli reassociate
+        output = check_output(['wpa_cli', 'reassociate'])
+        print('wpa_cli says ' + str(output))
         time.sleep(sleep_seconds)
         continue
     for j, b in enumerate(outs):
