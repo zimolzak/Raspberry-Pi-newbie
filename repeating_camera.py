@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# usage example for webcam:
+#    cd /var/www/
+#    sudo ~pi/Desktop/Raspberry-Pi-newbie/repeating_camera.py ceiling.jpg &
+
 """Test Raspberry Pi camera!
 
 Just rewrite the same filename again and again. Useful for pointing
@@ -16,7 +20,12 @@ import shutil
 filename = sys.argv[1]
 camera = picamera.PiCamera()
 camera.vflip = True
-camera.hflip = False # usually True
+camera.hflip = True 
+
+# Usually hflip = True. But "hflip = False" gives the desired mirror
+# effect if you're facing your camera and facing your browser aka
+# laptop screen.
+
 camera.rotation = 90
 camera.resolution = (648, 486) #exactly quarter
 camera.resolution = (432, 324) #exactly sixth
