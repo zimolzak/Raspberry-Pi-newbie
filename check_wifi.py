@@ -13,7 +13,7 @@ sleep_seconds = 15 * 60
 
 def print_exception(e):
     logging.info('object\t' + str(e))
-    logging.info('type\t' + str(type(e)))
+    logging.info('type  \t' + str(type(e)))
     if type(e) == CalledProcessError:
         logging.info('args  \t' + str(e.args))
         logging.info('cmd   \t'  + str(e.cmd))
