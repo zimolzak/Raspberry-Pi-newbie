@@ -4,6 +4,12 @@ Raspberry Pi newbie
 I just got a Raspberry Pi for my birthday. How do I make it work and
 do things?
 
+Nice daemons to start after boot
+--------
+* sudo ~pi/Desktop/Raspberry-Pi-newbie/repeating_camera.py ceiling.jpg &
+
+* python3 check_wifi.py &
+
 
 Achievements unlocked
 --------
