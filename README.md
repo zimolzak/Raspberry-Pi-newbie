@@ -18,7 +18,7 @@ In the category of pure blinkenlight demos:
 
 * Represent STDIN on LEDs, as either ASCII binary or on a
   seven-segment display. We use the text of _Pride and Prejudice._
-  Example: `cat pride_and_prejudice.txt | sudo ./seven_segment.py &`
+  Example: `cat pride_and_prejudice.txt | sudo ./cat_leds.py &`
 * Count off the seconds in binary using LEDs.
 * Fade an LED in/out by varying the duty cycle.
 * Randomly varying LED bar graph meter.
