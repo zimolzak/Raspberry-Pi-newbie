@@ -10,6 +10,10 @@ Nice daemons to start after boot
 
 * python3 check_wifi.py &
 
+* cd ../Mulder-quote-generator; python bot.py
+
+* cd ../sysadmin-webapp; nohup ./webapp.py &
+
 
 Achievements unlocked
 --------

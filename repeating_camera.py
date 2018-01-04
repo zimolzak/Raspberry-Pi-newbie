@@ -26,18 +26,18 @@ camera.hflip = True
 # effect if you're facing your camera and facing your browser aka
 # laptop screen.
 
-camera.rotation = 90
+camera.rotation = 0 # 0 means ether/usb side is up.
 camera.resolution = (648, 486) #exactly quarter
 camera.resolution = (432, 324) #exactly sixth
 
 # shutter_speed analog_gain digital_gain exposure_mode awb_mode
 # awb_gains iso framerate 
 
-camera.framerate = Fraction(1, 6)
-sec = 1
-camera.shutter_speed = int(sec * 1000000)
-camera.exposure_mode = 'off'
-camera.iso = 800
+#camera.framerate = Fraction(1, 6)  #default supposedly 30 fps
+#sec =  1.0/8 # 0 implies automatic
+#camera.shutter_speed = int(sec * 1000000) # it's in microseconds
+#camera.exposure_mode = 'off'
+#camera.iso = 800
 
 #camera.annotate_background = picamera.Color('black')
 
