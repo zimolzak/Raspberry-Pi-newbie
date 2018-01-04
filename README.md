@@ -10,7 +10,7 @@ Nice daemons to start after boot
 
 * python3 check_wifi.py &
 
-* cd ../Mulder-quote-generator; python bot.py
+* cd ../Mulder-quote-generator; python -u bot.py > log.txt &; mess w pid.txt
 
 * cd ../sysadmin-webapp; nohup ./webapp.py &
 

@@ -26,7 +26,10 @@ camera.hflip = True
 # effect if you're facing your camera and facing your browser aka
 # laptop screen.
 
-camera.rotation = 0 # 0 means ether/usb side is up.
+camera.rotation = 180
+# 0 = ether/usb side up.
+# 90 = power up, ribbon cable down
+
 camera.resolution = (648, 486) #exactly quarter
 camera.resolution = (432, 324) #exactly sixth
 
