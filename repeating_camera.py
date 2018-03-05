@@ -15,39 +15,49 @@ import sys
 from time import sleep
 from fractions import Fraction
 import shutil
-#import datetime as dt
+import datetime as dt
 
-filename = sys.argv[1]
-camera = picamera.PiCamera()
-camera.vflip = True
-camera.hflip = True 
+FILENAME = sys.argv[1]
 
-# Usually hflip = True. But "hflip = False" gives the desired mirror
-# effect if you're facing your camera and facing your browser aka
-# laptop screen.
+def setup_cam():
+    """Return a picamera object with reasonable mirroring, rotation,
+    shutter, and exposure
+    """
+    # Other camera properties:
+    # shutter_speed analog_gain digital_gain exposure_mode awb_mode
+    # awb_gains iso framerate
+    # camera.annotate_background = picamera.Color('black')
+    #
+    # Usually hflip = True. But "hflip = False" gives the desired mirror
+    # effect if you're facing your camera and facing your browser aka
+    # laptop screen.
+    camera = picamera.PiCamera()
+    camera.vflip = True
+    camera.hflip = True
+    camera.rotation = 90
+    camera.resolution = (432, 324) #exactly sixth. Full = 2592, 1944
+    camera.framerate = Fraction(1, 6)
+    sec = 1
+    camera.shutter_speed = int(sec * 1000000)
+    camera.exposure_mode = 'off'
+    camera.iso = 800
+    return camera
 
-camera.rotation = 90
-camera.resolution = (648, 486) #exactly quarter
-camera.resolution = (432, 324) #exactly sixth
+CAM = setup_cam()
 
-# shutter_speed analog_gain digital_gain exposure_mode awb_mode
-# awb_gains iso framerate 
-
-camera.framerate = Fraction(1, 6)
-sec = 1
-camera.shutter_speed = int(sec * 1000000)
-camera.exposure_mode = 'off'
-camera.iso = 800
-
-#camera.annotate_background = picamera.Color('black')
+stored = -1 # force an archive on 1st loop iteration.
 
 try:
     while True:
         sleep(5)
 #        s = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#        camera.annotate_text = "duh"
-        camera.capture("temp.jpg", quality=40)
-        shutil.copy("temp.jpg", filename)
-#        print s
+#        CAM.annotate_text = "duh"
+        CAM.capture("temp.jpg", quality=40)
+        shutil.copy("temp.jpg", FILENAME)
+        current = dt.datetime.now().hour
+        if current > stored or (current == 0 and stored == 23):
+            stored = current
+            shutil.copy("temp.jpg", 'hour'+str(current)+'.jpg')
+
 except KeyboardInterrupt:
     pass
