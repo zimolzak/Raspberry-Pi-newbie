@@ -21,7 +21,7 @@ FILENAME = sys.argv[1]
 
 def setup_cam():
     """Return a picamera object with reasonable mirroring, rotation,
-    shutter, and exposure
+    shutter, and exposure.
     """
     # Other camera properties:
     # shutter_speed analog_gain digital_gain exposure_mode awb_mode
@@ -34,7 +34,7 @@ def setup_cam():
     camera = picamera.PiCamera()
     camera.vflip = True
     camera.hflip = True
-    camera.rotation = 90
+    camera.rotation = 180
     camera.resolution = (432, 324) #exactly sixth. Full = 2592, 1944
     camera.framerate = Fraction(1, 6)
     sec = 1
