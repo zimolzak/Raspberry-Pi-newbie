@@ -2,7 +2,7 @@
 
 # usage example for webcam:
 #    cd /var/www/
-#    sudo ~pi/Desktop/Raspberry-Pi-newbie/repeating_camera.py ceiling.jpg &
+#    sudo /home/pi/Desktop/local/Raspberry-Pi-newbie/repeating_camera.py ceiling.jpg &
 
 """Test Raspberry Pi camera!
 
